@@ -1,9 +1,21 @@
 {
-  "name": "pace",
-  "version": "1.0.0",
+  "name": "@yuzuten/pace",
+  "version": "0.0.1",
   "description": "Pace calculator and charts",
   "author": "Jason Truesdell <jason@yuzuten.com>",
-  "private": true,
+  "private": false,
+  "license": "GPL-3.0",
+  "homepage": "https://pace.move.yuzuten.com",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JasonTrue/pace.git"
+  },
+  "keywords": [
+    "running",
+    "jogging",
+    "pace calculator",
+    "exercise"
+  ],
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
