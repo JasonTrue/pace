@@ -1,7 +1,7 @@
 <template>
   <table class="PaceTable">
     <tr class="row_header">
-      <th>Pace/km</th>
+      <th>Pace (Min./km)</th>
       <th>Speed (km/h)</th>
       <th>Speed (mi/h)</th>
       <th>5km time</th>
@@ -35,6 +35,17 @@ import momentDurationFormatSetup from 'moment-duration-format'
 momentDurationFormatSetup(moment)
 
 export default {
+  filters: {
+    formatSeconds: function(seconds) {
+      return moment.duration(seconds, 'seconds').format('mm:ss')
+    },
+    formatSpeed: function(speed, units) {
+      return `${speed.toFixed(2)} ${units}`
+    },
+    formatTime: function(duration) {
+      return `${moment.duration(duration, 'minutes').format('h:mm:ss')}`
+    }
+  },
   props: {
     start: {
       type: [Number, String],
@@ -71,23 +82,12 @@ export default {
     alternatingRowClass: function(index) {
       return 'row_' + (index % 2)
     }
-  },
-  filters: {
-    formatSeconds: function(seconds) {
-      return moment.duration(seconds, 'seconds').format('mm:ss')
-    },
-    formatSpeed: function(speed, units) {
-      return `${speed.toFixed(2)} ${units}`
-    },
-    formatTime: function(duration) {
-      return `${moment.duration(duration, 'minutes').format('h:mm:ss')}`
-    }
   }
 }
 </script>
 <style type="text/css">
 .PaceTable {
-  display: table;
+  border: 1px solid black;
 }
 .row_0 {
   background_color: white;

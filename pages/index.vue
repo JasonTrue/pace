@@ -7,8 +7,7 @@
       <h2 class="subtitle">
         Running pace calculator and visualizations
       </h2>
-      <PaceTable :start="start" :end="end" :increment="increment">
-      </PaceTable>
+      <PaceTable :start="start" :end="end" :increment="increment" />
       <div class="links">
         <a
           href="https://github.com/JasonTrue/pace"
