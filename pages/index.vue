@@ -1,21 +1,17 @@
 <template>
   <section class="container">
     <div>
-      <logo />
       <h1 class="title">
-        pace
+        YuzuTen Pace
       </h1>
       <h2 class="subtitle">
-        My exquisite Nuxt.js project
+        Running pace calculator and visualizations
       </h2>
+      <PaceTable :start="start" :end="end" :increment="increment">
+      </PaceTable>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/JasonTrue/pace"
           target="_blank"
           class="button--grey"
         >GitHub</a>
@@ -25,16 +21,24 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import PaceTable from '~/components/PaceTable.vue'
 
-export default {
+const indexPage = {
+  data: function() {
+    return {
+      increment: 5,
+      start: 300,
+      end: 420
+    }
+  },
   components: {
-    Logo
+    PaceTable
   }
 }
+export default indexPage
 </script>
 
-<style>
+<style lang="css">
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
