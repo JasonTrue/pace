@@ -7,7 +7,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'YuzuTen Pace Charts',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -39,6 +39,12 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
+  /* pre-render certain routes */
+  generate: {
+    routes: Array.from({ length: 12 }, (k, i) => {
+      return `/pace/km/${(i + 1) * 90 - 60}-${(i + 1) * 90 + 60}`
+    })
+  },
   /*
   ** Axios module configuration
   */

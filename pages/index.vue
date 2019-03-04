@@ -7,7 +7,8 @@
       <h2 class="subtitle">
         Running pace calculator and visualizations
       </h2>
-      <PaceTable :start="start" :end="end" :increment="increment" />
+
+      <PaceTool :start="start" :end="end" :increment="increment" units="km" />
       <div class="links">
         <a
           href="https://github.com/JasonTrue/pace"
@@ -20,18 +21,19 @@
 </template>
 
 <script>
-import PaceTable from '~/components/PaceTable.vue'
+import PaceTool from '~/components/PaceTool'
 
 const indexPage = {
   data: function() {
     return {
       increment: 5,
       start: 300,
-      end: 420
+      end: 420,
+      units: 'km'
     }
   },
   components: {
-    PaceTable
+    PaceTool
   }
 }
 export default indexPage
@@ -43,14 +45,14 @@ export default indexPage
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+/*.container {*/
+  /*margin: 0 auto;*/
+  /*min-height: 100vh;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  /*text-align: center;*/
+/*}*/
 
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,

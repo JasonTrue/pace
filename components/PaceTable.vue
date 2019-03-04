@@ -1,33 +1,39 @@
 <template>
-  <table class="PaceTable">
-    <tr class="row_header">
-      <th>Pace (Min./km)</th>
-      <th>Speed (km/h)</th>
-      <th>Speed (mi/h)</th>
-      <th>5km time</th>
-      <th>10km time</th>
-      <th>15km time</th>
-      <th>21.0975km time</th>
-      <th>42.195km time</th>
-    </tr>
-    <tr
-      v-for="(seconds, index) in Array.from(
-        { length: (end - start) / increment },
-        (v, k) => k * increment + start
-      )"
-      :key="seconds"
-      :class="alternatingRowClass(index)"
-    >
-      <th>{{ seconds | formatSeconds }}</th>
-      <td>{{ calculateSpeed(seconds) | formatSpeed('km/h') }}</td>
-      <td>{{ convertToMph(calculateSpeed(seconds)) | formatSpeed('mi/h') }}</td>
-      <td>{{ calculateTimeForDistanceInKm(5, seconds) | formatTime }}</td>
-      <td>{{ calculateTimeForDistanceInKm(10, seconds) | formatTime }}</td>
-      <td>{{ calculateTimeForDistanceInKm(15, seconds) | formatTime }}</td>
-      <td>{{ calculateTimeForDistanceInKm(21.0975, seconds) | formatTime }}</td>
-      <td>{{ calculateTimeForDistanceInKm(42.195, seconds) | formatTime }}</td>
-    </tr>
-  </table>
+  <div class="container">
+    <table class="PaceTable">
+      <thead>
+        <tr class="row_header">
+          <th>Pace (Min./km)</th>
+          <th>Speed (km/h)</th>
+          <th>Speed (mi/h)</th>
+          <th>5km time</th>
+          <th>10km time</th>
+          <th>15km time</th>
+          <th>21.0975km time</th>
+          <th>42.195km time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="(seconds, index) in Array.from(
+            { length: (end - start) / increment },
+            (v, k) => k * increment + start
+          )"
+          :key="seconds"
+          :class="alternatingRowClass(index)"
+        >
+          <th>{{ seconds | formatSeconds }}</th>
+          <td>{{ calculateSpeed(seconds) | formatSpeed('km/h') }}</td>
+          <td>{{ convertToMph(calculateSpeed(seconds)) | formatSpeed('mi/h') }}</td>
+          <td>{{ calculateTimeForDistanceInKm(5, seconds) | formatTime }}</td>
+          <td>{{ calculateTimeForDistanceInKm(10, seconds) | formatTime }}</td>
+          <td>{{ calculateTimeForDistanceInKm(15, seconds) | formatTime }}</td>
+          <td>{{ calculateTimeForDistanceInKm(21.0975, seconds) | formatTime }}</td>
+          <td>{{ calculateTimeForDistanceInKm(42.195, seconds) | formatTime }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 <script>
 import moment from 'moment'
@@ -37,7 +43,7 @@ momentDurationFormatSetup(moment)
 export default {
   filters: {
     formatSeconds: function(seconds) {
-      return moment.duration(seconds, 'seconds').format('mm:ss')
+      return moment.duration(seconds, 'seconds').format('m:ss', { trim: 'mid' })
     },
     formatSpeed: function(speed, units) {
       return `${speed.toFixed(2)} ${units}`
