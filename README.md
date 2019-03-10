@@ -39,4 +39,4 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 ## License
 
 *@YuzuTen/Pace* is Copyright &copy; 2019 Jason Truesdell. Licensed under the 
-terms of the [GNU Public License V3](license.txt)
+terms of the [GNU Public License V3](LICENSE.txt)
