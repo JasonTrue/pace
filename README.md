@@ -1,5 +1,7 @@
 # @YuzuTen/pace
 
+[![Build Status](https://travis-ci.com/JasonTrue/pace.svg?branch=master)](https://travis-ci.com/JasonTrue/pace)
+
 > Pace calculator and charts
 
 This is a quick-and-dirty Vue/Nuxt project designed to visualize the
