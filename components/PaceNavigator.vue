@@ -1,6 +1,6 @@
 <template>
   <div class="timeRanges">
-    <section class="">
+    <section class="timeRangeList">
       <ul>
         <li v-for="n in 12" :key="n">
           <NuxtLink :to="pace_range_path(n, 'km')">

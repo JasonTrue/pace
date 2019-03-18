@@ -1,9 +1,9 @@
+import PaceTable from '@/components/PaceTable.vue'
 import { mount } from '@vue/test-utils'
-import Logo from '@/components/Logo.vue'
 
-describe('Logo', () => {
+describe('PaceTable', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(Logo)
+    const wrapper = mount(PaceTable)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
