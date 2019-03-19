@@ -9,8 +9,8 @@
           <th>5km time</th>
           <th>10km time</th>
           <th>15km time</th>
-          <th>21.0975km time</th>
-          <th>42.195km time</th>
+          <th>Half-marathon time</th>
+          <th>Marathon time</th>
         </tr>
       </thead>
       <tbody>
