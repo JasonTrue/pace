@@ -1,6 +1,7 @@
 # @YuzuTen/pace
 
 [![Build Status](https://travis-ci.com/JasonTrue/pace.svg?branch=master)](https://travis-ci.com/JasonTrue/pace)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e66b9a8-d072-4635-9281-4f633e96f3cc/deploy-status)](https://app.netlify.com/sites/amazing-davinci-46d165/deploys)
 
 > Pace calculator and charts
 
