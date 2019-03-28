@@ -20,28 +20,31 @@ const kmPacePage = {
       unit: 'km'
     }
   },
-  mounted: function() {
-    const formatTime = duration => {
-      return `${moment.duration(duration, 'seconds').format('m:ss', {
-        trim: false
-      })}`
+  computed: {
+    title() {
+      const formatTime = duration => {
+        return `${moment.duration(duration, 'seconds').format('m:ss', {
+          trim: false
+        })}`
+      }
+      return `${formatTime(this.start)}-${formatTime(this.end)} Pace Table`
     }
-    const title = `${formatTime(this.start)}-${formatTime(this.end)} Pace Table`
-    this.$store.commit('SET_PAGE_TITLE', title)
+  },
+  mounted: function() {
+    this.$store.commit('SET_PAGE_TITLE', this.title)
     this.$store.commit(
       'SET_PAGE_SUBTITLE',
       'Running pace in time per kilometer'
     )
   },
   filters: {},
-  computed: {},
   components: {
     PaceTool
   },
   head() {
     return {
       title: () => {
-        return this.$store.state.pageTitle
+        return this.title
       }
     }
   },
