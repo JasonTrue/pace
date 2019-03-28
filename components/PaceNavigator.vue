@@ -1,9 +1,9 @@
 <template>
   <div class="timeRanges">
-    <section class="timeRangeList">
-      <ul>
-        <li v-for="n in 12" :key="n">
-          <NuxtLink :to="pace_range_path(n, 'km')">
+    <section class="timeRangeList text-left">
+      <ul class="list-reset ">
+        <li class="mr-3" v-for="n in 12" :key="n">
+          <NuxtLink class="inline-block border border-blue rounded-t hover:border-grey-lighter text-blue hover:bg-grey-lighter py-1 px-6" :to="pace_range_path(n, 'km')">
             {{ format_range(n) }}
           </NuxtLink>
         </li>
@@ -49,5 +49,8 @@ export default {
 .timeRanges li {
   margin: 3px;
   display: inline-block;
+}
+.nuxt-link-active {
+  color: config('colors.indigo-darker');
 }
 </style>

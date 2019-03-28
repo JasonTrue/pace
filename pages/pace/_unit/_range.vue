@@ -1,18 +1,15 @@
 <template>
-  <section class="container">
+  <section class="section container">
     <div>
-      <h1 class="title">
-        YuzuTen Pace
-      </h1>
-      <h2 class="subtitle">
-        Running pace calculator and visualizations
-      </h2>
-      <PaceTool :start="start" :end="end" :increment="increment" :unit="unit" />
+      <PaceTool :start="start" :end="end" :increment="increment" :units="unit" />
     </div>
   </section>
 </template>
 <script>
 import PaceTool from '~/components/PaceTool.vue'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+momentDurationFormatSetup(moment)
 
 const kmPacePage = {
   data: function() {
@@ -23,8 +20,30 @@ const kmPacePage = {
       unit: 'km'
     }
   },
+  mounted: function() {
+    const formatTime = duration => {
+      return `${moment.duration(duration, 'seconds').format('m:ss', {
+        trim: false
+      })}`
+    }
+    const title = `${formatTime(this.start)}-${formatTime(this.end)} Pace Table`
+    this.$store.commit('SET_PAGE_TITLE', title)
+    this.$store.commit(
+      'SET_PAGE_SUBTITLE',
+      'Running pace in time per kilometer'
+    )
+  },
+  filters: {},
+  computed: {},
   components: {
     PaceTool
+  },
+  head() {
+    return {
+      title: () => {
+        return this.$store.state.pageTitle
+      }
+    }
   },
   validate({ params }) {
     return params.unit === 'km' && /^\d+-\d+$/.test(params.range)

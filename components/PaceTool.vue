@@ -1,11 +1,11 @@
 <template>
-  <div id="PaceTool">
+  <div class="" id="PaceTool">
     <PaceNavigator />
-    <PaceTable :start="start" :end="end" :increment="increment" />
-    <legend>
+    <PaceTable :start="start" :end="end" :increment="increment" :units="units"/>
+    <div>
       <div>All times listed in hours:minutes:seconds.</div>
       <div>Half-marathon and Full-marathon times use the "official" distances of 21.0975 km/42.195km</div>
-    </legend>
+    </div>
   </div>
 </template>
 <script>
@@ -32,7 +32,13 @@ export default {
       type: [Number, String],
       default: 0,
       validator: value => !isNaN(value - parseInt(value))
+    },
+    units: {
+      type: [String],
+      default: 'km'
     }
   }
 }
 </script>
+<style>
+</style>

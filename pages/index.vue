@@ -1,26 +1,12 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        YuzuTen Pace
-      </h1>
-      <h2 class="subtitle">
-        Running pace calculator and visualizations
-      </h2>
-
-      <PaceTool :start="start" :end="end" :increment="increment" units="km" />
-      <div class="links">
-        <a
-          href="https://github.com/JasonTrue/pace"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-    </div>
+  <section class="section">
+    <PaceTool :start="start" :end="end" :increment="increment" units="km" />
   </section>
 </template>
 
 <script>
+import Page from '~/layouts/default'
+
 import PaceTool from '~/components/PaceTool'
 
 const indexPage = {
@@ -29,50 +15,31 @@ const indexPage = {
       increment: 5,
       start: 300,
       end: 420,
-      units: 'km'
+      units: 'km',
+      title: 'Home'
+    }
+  },
+  mounted: function() {
+    const title = 'YuzuTen Pace'
+    this.$store.commit('SET_PAGE_TITLE', title)
+    this.$store.commit(
+      'SET_PAGE_SUBTITLE',
+      'Running pace charts & visualizations'
+    )
+  },
+  head() {
+    return {
+      title: () => {
+        return this.$store.state.pageTitle
+      }
     }
   },
   components: {
-    PaceTool
+    PaceTool,
+    Page
   }
 }
 export default indexPage
 </script>
-
 <style lang="css">
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-/*.container {*/
-  /*margin: 0 auto;*/
-  /*min-height: 100vh;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*text-align: center;*/
-/*}*/
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <table class="PaceTable">
+  <div>
+    <table class="PaceTable overflow-y-scroll">
       <thead>
         <tr class="row_header">
           <th>Pace (Min./km)</th>
@@ -67,6 +67,10 @@ export default {
       type: [Number, String],
       default: 0,
       validator: value => !isNaN(value - parseInt(value))
+    },
+    units: {
+      type: [String],
+      default: 'km'
     }
   },
   methods: {
@@ -91,20 +95,22 @@ export default {
   }
 }
 </script>
-<style type="text/css">
+<style>
 .PaceTable {
   border: 1px solid black;
 }
 .row_0 {
-  background_color: white;
-  color: black;
+  background_color: config('colors.grey-darker');
+  color: config('colors.dark');
 }
 .row_1 {
-  background-color: darkblue;
+  background-color: config('colors.blue-dark');
   color: white;
 }
 .row_header {
-  background-color: black;
-  color: yellow;
+  background-color: config('colors.black');
+  color: config('colors.yellow');
+}
+th {
 }
 </style>
