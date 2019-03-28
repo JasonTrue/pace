@@ -1,11 +1,12 @@
 <template>
   <div>
-    <table class="PaceTable overflow-y-scroll">
+    <table class="PaceTable w-full">
       <thead>
         <tr class="row_header">
           <th>Pace (Min./km)</th>
           <th>Speed (km/h)</th>
           <th>Speed (mi/h)</th>
+          <th>1mi time</th>
           <th>5km time</th>
           <th>10km time</th>
           <th>15km time</th>
@@ -25,6 +26,7 @@
           <th>{{ seconds | formatSeconds }}</th>
           <td>{{ calculateSpeed(seconds) | formatSpeed('km/h') }}</td>
           <td>{{ convertToMph(calculateSpeed(seconds)) | formatSpeed('mi/h') }}</td>
+          <td>{{ calculateTimeForDistanceInMi(1, seconds) | formatTime }}</td>
           <td>{{ calculateTimeForDistanceInKm(5, seconds) | formatTime }}</td>
           <td>{{ calculateTimeForDistanceInKm(10, seconds) | formatTime }}</td>
           <td>{{ calculateTimeForDistanceInKm(15, seconds) | formatTime }}</td>
@@ -88,6 +90,9 @@ export default {
     },
     calculateTimeForDistanceInKm: function(distanceInKm, seconds) {
       return (seconds * distanceInKm) / 60.0
+    },
+    calculateTimeForDistanceInMi: function(distanceInMi, seconds) {
+      return (seconds * distanceInMi * 1.60934) / 60.0
     },
     alternatingRowClass: function(index) {
       return 'row_' + (index % 2)
