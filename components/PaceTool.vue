@@ -1,7 +1,7 @@
 <template>
-  <div class="" id="PaceTool">
+  <div id="PaceTool">
     <PaceNavigator />
-    <PaceTable :start="start" :end="end" :increment="increment" :units="units"/>
+    <PaceTable :start="start" :end="end" :increment="increment" :units="units" />
     <div>
       <div>All times listed in hours:minutes:seconds.</div>
       <div>Half-marathon and Full-marathon times use the "official" distances of 21.0975 km/42.195km</div>

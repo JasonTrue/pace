@@ -2,8 +2,11 @@
   <div class="timeRanges">
     <section class="timeRangeList text-left">
       <ul class="list-reset ">
-        <li class="mr-3" v-for="n in 12" :key="n">
-          <NuxtLink class="inline-block border border-blue rounded-t hover:border-grey-lighter text-blue hover:bg-grey-lighter py-1 px-6" :to="pace_range_path(n, 'km')">
+        <li v-for="n in 12" :key="n" class="mr-3">
+          <NuxtLink
+            :to="pace_range_path(n, 'km')"
+            class="inline-block border border-blue rounded-t hover:border-grey-lighter text-blue hover:bg-grey-lighter py-1 px-6"
+          >
             {{ format_range(n) }}
           </NuxtLink>
         </li>

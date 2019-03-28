@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="section container">
     <PaceTool :start="start" :end="end" :increment="increment" units="km" />
   </section>
 </template>
@@ -19,6 +19,11 @@ const indexPage = {
       title: 'Home'
     }
   },
+  head() {
+    return {
+      title: 'Home'
+    }
+  },
   mounted: function() {
     const title = 'YuzuTen Pace'
     this.$store.commit('SET_PAGE_TITLE', title)
@@ -26,13 +31,6 @@ const indexPage = {
       'SET_PAGE_SUBTITLE',
       'Running pace charts & visualizations'
     )
-  },
-  head() {
-    return {
-      title: () => {
-        return this.$store.state.pageTitle
-      }
-    }
   },
   components: {
     PaceTool,

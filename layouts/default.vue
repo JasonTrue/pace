@@ -9,7 +9,7 @@
           {{ $store.state.subtitle }}
         </h2>
       </header>
-      <nuxt/>
+      <nuxt />
     </div>
     <footer>
       <div class="text-center w-full p-2">
@@ -26,6 +26,7 @@
   </div>
 </template>
 <script>
+export default {}
 </script>
 
 <style>

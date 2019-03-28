@@ -54,7 +54,7 @@ const kmPacePage = {
       start: parseInt(range[0]),
       end: parseInt(range[1]),
       stringified: Object.keys(context.params).join(','),
-      unit: context.params
+      unit: context.params.units || 'km'
     }
   }
 }
