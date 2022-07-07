@@ -59,7 +59,7 @@
     "jest-cli": "^24.5.0",
     "jest-haste-map": "^24.5.0",
     "jest-resolve": "^24.5.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nodemon": "^1.18.9",
     "prettier": "1.14.3",
     "tailwindcss": "^0.7.0",
